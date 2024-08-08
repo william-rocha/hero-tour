@@ -1,10 +1,12 @@
 import {Component} from '@angular/core';
 import { HeroesComponent } from './heroes/heroes.component';
 import { CommonModule } from '@angular/common';
+import { MessagesComponent } from './messages/messages.component';
+
 
 @Component({
   standalone: true,
-  imports: [HeroesComponent, CommonModule],
+  imports: [HeroesComponent, CommonModule, MessagesComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
