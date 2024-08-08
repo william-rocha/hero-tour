@@ -6,6 +6,7 @@ import { MessageService } from '../message.service';
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
 standalone: true,
@@ -17,25 +18,19 @@ standalone: true,
     NgIf,
     NgFor,
     UpperCasePipe,
-    HeroDetailComponent
+    RouterLink
   ],
 })
 export class HeroesComponent implements OnInit {
 
-  selectedHero?: Hero;
-
   heroes: Hero[] = [];
 
-  constructor(private heroService: HeroService, private messageService: MessageService) { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.getHeroes();
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
 
   getHeroes(): void {
     this.heroService.getHeroes()
